@@ -1,4 +1,4 @@
-package com.example.porjet_security.usersData;
+package com.example.porjet_security.items;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -19,8 +19,8 @@ public class UserApp {
 
     private String password;
 
-    public UserApp(String user, String password) {
-        this.username=user;
+    public UserApp(String username, String password) {
+        this.username=username;
         this.password=password;
     }
 }

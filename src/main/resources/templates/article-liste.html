@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Liste des articles</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+<h1>Liste des articles</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Titre</th>
+        <th>Contenu</th>
+        <th>Auteur</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="article : ${articles}">
+        <td th:text="${article.titre}">Titre</td>
+        <td th:text="${article.contenu}">Contenu</td>
+        <td th:text="${article.username}">Enregistré par</td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(articles)}">
+        <td colspan="4">Aucun article disponible.</td>
+    </tr>
+    </tbody>
+
+</table>
+
+<p>
+    <a th:href="@{/add-article}">Ajouter un nouvel article</a>
+</p>
+</body>
+</html>
